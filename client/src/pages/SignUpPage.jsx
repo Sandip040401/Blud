@@ -10,15 +10,18 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-no-repeat bg-cover" style={{ backgroundImage: `url('/background.svg')` }}>
+    <div
+      className="relative h-screen w-screen overflow-hidden bg-no-repeat bg-cover"
+      style={{ backgroundImage: `url('/background.svg')` }}
+    >
       {/* Header with Search bar, Logo, and Icons */}
-      <div className="flex justify-between items-center py-8 px-14">
+      <div className="flex justify-between items-center py-8 px-6 md:px-14">
         {/* Search Bar */}
         <div className="flex items-center bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300">
           <input
             type="text"
             placeholder="Search..."
-            className="outline-none bg-transparent text-black w-40 focus:w-64 transition-all duration-300"
+            className="outline-none bg-transparent text-black w-32 md:w-40 focus:w-40 md:focus:w-64 transition-all duration-300"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,27 +31,31 @@ const SignUpPage = () => {
             stroke="currentColor"
             className="w-6 h-6 text-gray-500 hover:text-gray-700 transition-colors duration-300"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
 
         {/* Logo */}
         <img
           src="/logo.png"
-          className="h-16 w-auto cursor-pointer hover:scale-110 transition-transform duration-300"
+          className="h-12 md:h-16 w-auto cursor-pointer hover:scale-110 transition-transform duration-300"
           alt="Logo"
         />
 
         {/* Icons */}
-        <div className="flex space-x-6">
+        <div className="flex space-x-4 md:space-x-6">
           <AiFillSetting className="w-6 h-6 text-white hover:text-gray-300 hover:rotate-45 transition-all duration-300" />
           <MdApps className="w-6 h-6 text-white hover:text-gray-300 hover:scale-110 transition-transform duration-300" />
           <AiOutlineUser className="w-6 h-6 text-white hover:text-gray-300 hover:scale-110 transition-transform duration-300" />
         </div>
       </div>
 
-      {/* Images Section */}
-      <div className="absolute left-40 top-60 flex space-x-4">
+      {/* Images Section - Hidden on small screens */}
+      <div className="hidden lg:flex absolute left-40 top-60 space-x-4">
         <div className="relative">
           <div className="absolute z-10">
             <img
@@ -75,10 +82,10 @@ const SignUpPage = () => {
       </div>
 
       {/* Sign Up Card */}
-      <div className="absolute right-60 top-60 bg-white bg-opacity-90 p-8 rounded-xl shadow-lg max-w-sm w-full hover:shadow-xl transition-shadow duration-300">
+      <div className="absolute right-10 md:right-60 top-40 md:top-60 bg-white bg-opacity-90 p-6 md:p-8 rounded-xl shadow-lg max-w-sm w-full hover:shadow-xl transition-shadow duration-300">
         <div className="flex mb-6">
           <button
-            className={`text-xl font-bold transition ${
+            className={`text-lg md:text-xl font-bold transition ${
               isSignUp ? 'text-black underline' : 'text-gray-400'
             } hover:text-blue-600`}
             onClick={() => setIsSignUp(true)}
@@ -86,7 +93,7 @@ const SignUpPage = () => {
             Sign Up
           </button>
           <button
-            className={`text-xl font-bold transition ml-4 ${
+            className={`text-lg md:text-xl font-bold transition ml-4 ${
               !isSignUp ? 'text-black underline' : 'text-gray-400'
             } hover:text-blue-600`}
             onClick={() => setIsSignUp(false)}
